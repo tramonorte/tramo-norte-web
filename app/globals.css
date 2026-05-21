@@ -23,37 +23,36 @@ html {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: var(--sans);
+  font-family: var(--sans) !important;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-body, button, input, textarea, select {
-  font-family: var(--sans);
+body, button, input, textarea, select, h1, h2, h3, h4, h5, h6, p, a, span, li, div {
+  font-family: var(--sans) !important;
 }
 
-h1, h2, h3, h4, h5, h6,
-.hero-title,
-.about-heading,
-.services-title,
-.contact-left h2,
-.project-name,
-.service-num,
-.nav-logo-box span,
-.footer-logo-box span,
-.nav-links a,
-.nav-btn,
-.about-link,
-.ver-mas,
-.hero-cta,
-.service-name,
-.footer-col-title,
-.footer-col p,
-.footer-col a,
-.contact-info-item,
-.form-btn {
-  font-family: var(--sans);
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--sans) !important;
+  font-weight: inherit;
+}
+
+.nav,
+.nav * ,
+.hero,
+.hero *,
+.about,
+.about *,
+.projects,
+.projects *,
+.services,
+.services *,
+.contact,
+.contact *,
+footer,
+footer * {
+  font-family: var(--sans) !important;
 }
 
 .nav {
@@ -170,6 +169,7 @@ h1, h2, h3, h4, h5, h6,
   line-height: 1;
   letter-spacing: 0.02em;
   color: var(--text);
+  font-family: var(--sans) !important;
 }
 
 .hero-cta {
@@ -186,6 +186,7 @@ h1, h2, h3, h4, h5, h6,
   transition: all 0.3s;
   white-space: nowrap;
   margin-bottom: 8px;
+  font-family: var(--sans) !important;
 }
 
 .hero-cta:hover {
@@ -217,6 +218,7 @@ section {
   font-weight: 400;
   line-height: 1.25;
   color: var(--text);
+  font-family: var(--sans) !important;
 }
 
 .about-right {
@@ -244,6 +246,7 @@ section {
   padding-bottom: 4px;
   transition: border-color 0.2s;
   width: fit-content;
+  font-family: var(--sans) !important;
 }
 
 .about-link:hover {
@@ -294,6 +297,7 @@ section {
   font-weight: 400;
   color: var(--text);
   letter-spacing: 0.03em;
+  font-family: var(--sans) !important;
 }
 
 .projects-footer {
@@ -313,6 +317,7 @@ section {
   padding: 10px 20px;
   border: 1px solid var(--border);
   transition: border-color 0.2s;
+  font-family: var(--sans) !important;
 }
 
 .ver-mas:hover {
@@ -328,6 +333,7 @@ section {
   font-weight: 300;
   color: var(--text);
   margin-bottom: 56px;
+  font-family: var(--sans) !important;
 }
 
 .services-grid {
@@ -353,6 +359,7 @@ section {
   font-size: 28px;
   font-weight: 300;
   color: var(--text-muted);
+  font-family: var(--sans) !important;
 }
 
 .service-name {
@@ -387,6 +394,7 @@ section {
   line-height: 1.2;
   color: var(--text);
   margin-bottom: 16px;
+  font-family: var(--sans) !important;
 }
 
 .contact-left p {
@@ -430,7 +438,7 @@ section {
   background: transparent;
   border: 1px solid var(--border);
   color: var(--text);
-  font-family: var(--sans);
+  font-family: var(--sans) !important;
   font-size: 13px;
   font-weight: 300;
   padding: 14px 16px;
@@ -459,7 +467,7 @@ section {
   background: var(--text);
   color: var(--bg);
   border: none;
-  font-family: var(--sans);
+  font-family: var(--sans) !important;
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
