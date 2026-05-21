@@ -29,6 +29,33 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+body, button, input, textarea, select {
+  font-family: var(--sans);
+}
+
+h1, h2, h3, h4, h5, h6,
+.hero-title,
+.about-heading,
+.services-title,
+.contact-left h2,
+.project-name,
+.service-num,
+.nav-logo-box span,
+.footer-logo-box span,
+.nav-links a,
+.nav-btn,
+.about-link,
+.ver-mas,
+.hero-cta,
+.service-name,
+.footer-col-title,
+.footer-col p,
+.footer-col a,
+.contact-info-item,
+.form-btn {
+  font-family: var(--sans);
+}
+
 .nav {
   position: fixed;
   top: 0;
@@ -61,7 +88,6 @@ body {
 }
 
 .nav-logo-box span {
-  font-family: var(--sans);
   font-size: 11px;
   font-weight: 400;
   color: var(--text);
@@ -139,7 +165,6 @@ body {
 }
 
 .hero-title {
-  font-family: var(--sans);
   font-size: clamp(56px, 8vw, 100px);
   font-weight: 300;
   line-height: 1;
@@ -188,7 +213,6 @@ section {
 }
 
 .about-heading {
-  font-family: var(--sans);
   font-size: clamp(28px, 3.5vw, 40px);
   font-weight: 400;
   line-height: 1.25;
@@ -266,7 +290,6 @@ section {
 }
 
 .project-name {
-  font-family: var(--sans);
   font-size: 18px;
   font-weight: 400;
   color: var(--text);
@@ -301,7 +324,6 @@ section {
 }
 
 .services-title {
-  font-family: var(--sans);
   font-size: clamp(36px, 5vw, 52px);
   font-weight: 300;
   color: var(--text);
@@ -328,7 +350,6 @@ section {
 }
 
 .service-num {
-  font-family: var(--sans);
   font-size: 28px;
   font-weight: 300;
   color: var(--text-muted);
@@ -361,7 +382,6 @@ section {
 }
 
 .contact-left h2 {
-  font-family: var(--sans);
   font-size: clamp(32px, 4vw, 48px);
   font-weight: 400;
   line-height: 1.2;
@@ -499,7 +519,6 @@ footer {
 }
 
 .footer-logo-box span {
-  font-family: var(--sans);
   font-size: 11px;
   color: var(--text-muted);
   line-height: 1.1;
