@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -12,7 +12,7 @@
   --text: #f0ece4;
   --text-muted: #9a9690;
   --border: #2e2b27;
-  --serif: 'Cormorant Garamond', Georgia, serif;
+  --serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
@@ -61,7 +61,7 @@ body {
 }
 
 .nav-logo-box span {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 11px;
   font-weight: 400;
   color: var(--text);
@@ -139,7 +139,7 @@ body {
 }
 
 .hero-title {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(56px, 8vw, 100px);
   font-weight: 300;
   line-height: 1;
@@ -188,7 +188,7 @@ section {
 }
 
 .about-heading {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(28px, 3.5vw, 40px);
   font-weight: 400;
   line-height: 1.25;
@@ -266,7 +266,7 @@ section {
 }
 
 .project-name {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 18px;
   font-weight: 400;
   color: var(--text);
@@ -301,7 +301,7 @@ section {
 }
 
 .services-title {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(36px, 5vw, 52px);
   font-weight: 300;
   color: var(--text);
@@ -328,7 +328,7 @@ section {
 }
 
 .service-num {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 28px;
   font-weight: 300;
   color: var(--text-muted);
@@ -361,7 +361,7 @@ section {
 }
 
 .contact-left h2 {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(32px, 4vw, 48px);
   font-weight: 400;
   line-height: 1.2;
@@ -499,7 +499,7 @@ footer {
 }
 
 .footer-logo-box span {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 11px;
   color: var(--text-muted);
   line-height: 1.1;
