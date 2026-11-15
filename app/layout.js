@@ -1,8 +1,8 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'Tramo Norte — Arquitectura · BIM · Visualización',
-  description: 'Estudio de arquitectura y construcción con sede en Antofagasta, Chile.',
+  title: 'Tramo Norte — Arquitectura y soluciones BIM',
+  description: 'Estudio de Arquitectura y soluciones BIM con sede en Antofagasta, Chile. Cada Tramo te acerca a tu Norte.',
 }
 
 export default function RootLayout({ children }) {
@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
       </head>
       <body>{children}</body>
     </html>
