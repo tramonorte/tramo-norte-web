@@ -712,8 +712,3 @@ button.project-card {
   display: inline-block;
   margin-top: 4px;
 }
-
-/* Respaldo de portada mientras no exista public/img/portada.jpg */
-.hero {
-  background: #1a1714 url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1800&q=80') center / cover no-repeat;
-}
