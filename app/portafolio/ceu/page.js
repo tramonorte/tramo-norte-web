@@ -39,9 +39,9 @@ export default function Ceu() {
           const [x, y, w, h] = b.c
           const style = { '--x': x, '--y': y - 845, '--w': w, '--h': h }
           return b.img ? (
-            <img key={i} className={'ceu-b ceu-img' + (b.suelta ? ' ceu-suelta' : '')} style={style} src={`/img/ceu/${b.img}.webp`} alt={b.alt} loading="lazy" />
+            <img key={i} className={'anim ceu-b ceu-img' + (b.suelta ? ' ceu-suelta' : '')} style={style} src={`/img/ceu/${b.img}.webp`} alt={b.alt} loading="lazy" />
           ) : (
-            <div key={i} className="ceu-b ceu-txt" style={style}>
+            <div key={i} className="anim ceu-b ceu-txt" style={style}>
               {textos[b.txt].map((p, j) => <p key={j}>{p}</p>)}
             </div>
           )
