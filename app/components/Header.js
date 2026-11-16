@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Logo from './Logo'
 
@@ -12,9 +12,16 @@ const LINKS = [
 
 export default function Header() {
   const [abierto, setAbierto] = useState(false)
+  const [bajo, setBajo] = useState(false)
   const cerrar = () => setAbierto(false)
+  useEffect(() => {
+    const alBajar = () => setBajo(window.scrollY > 24)
+    alBajar()
+    window.addEventListener('scroll', alBajar, { passive: true })
+    return () => window.removeEventListener('scroll', alBajar)
+  }, [])
   return (
-    <header className={'cab' + (abierto ? ' cab-abierta' : '')}>
+    <header className={'cab' + (abierto ? ' cab-abierta' : '') + (bajo ? ' cab-bajo' : '')}>
       <Link href="/" className="cab-marca" onClick={cerrar}>
         <Logo className="cab-logo" />
         <span>Tramo Norte</span>

@@ -19,7 +19,7 @@ const TikTok = () => (
 export default function Footer() {
   return (
     <footer className="pie">
-      <div className="pie-caja">
+      <div className="pie-caja anim">
         <div className="pie-contacto">
           <p className="pie-dir"><Pin />Av. Argentina N 2214, Antofagasta</p>
           <div className="pie-tel">

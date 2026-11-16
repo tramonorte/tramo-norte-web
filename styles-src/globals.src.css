@@ -31,31 +31,58 @@ main { position: relative; max-width: 1920px; margin: 0 auto; overflow: hidden; 
 }
 .boton:hover { background: #fff; color: #000; }
 
-/* ---------- Cabecera ---------- */
+/* ---------- Cabecera: barra fija de vidrio ---------- */
 .cab {
-  position: absolute; z-index: 20; top: 16u; left: 8u; right: 8u; height: 75u;
-  border-radius: 38u; background: var(--pildora);
-  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-  color: #fff;
+  position: fixed; z-index: 50; top: 16u; height: 75u;
+  left: calc(50vw - min(50vw, 960px) + 8u); right: calc(50vw - min(50vw, 960px) + 8u);
+  border-radius: 38u; color: #fff;
+  background: linear-gradient(180deg, rgba(128, 128, 128, 0.52), rgba(92, 92, 92, 0.58));
+  backdrop-filter: blur(22px) saturate(170%); -webkit-backdrop-filter: blur(22px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 0 rgba(0, 0, 0, 0.06), 0 8u 30u rgba(0, 0, 0, 0.12);
+  transition: background 0.4s, box-shadow 0.4s, top 0.4s;
+}
+.cab-bajo {
+  top: 10u;
+  background: linear-gradient(180deg, rgba(112, 112, 112, 0.66), rgba(82, 82, 82, 0.72));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 10u 34u rgba(0, 0, 0, 0.2);
 }
 .cab-marca { position: absolute; left: 24u; top: 0; height: 100%; display: flex; align-items: center; gap: 14u; font-size: 16.6u; letter-spacing: 0.06em; }
 .cab-logo { width: 46u; height: auto; }
-.cab-nav a { position: absolute; top: 31u; font-size: 10.7u; letter-spacing: 0.06em; white-space: nowrap; opacity: 0.95; }
-.cab-nav a:hover, .cab-cta:hover { opacity: 0.7; }
+.cab-nav a { position: absolute; top: 30u; font-size: 10.7u; letter-spacing: 0.06em; white-space: nowrap; opacity: 0.95; transition: opacity 0.2s; }
+.cab-nav a::after { content: ''; position: absolute; left: 0; right: 0; bottom: -6u; height: 1px; background: #fff; transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+.cab-nav a:hover::after { transform: scaleX(1); }
 .cab-nav a:nth-child(1) { left: 571u; }
 .cab-nav a:nth-child(2) { left: 692u; }
 .cab-nav a:nth-child(3) { left: 845u; }
 .cab-nav a:nth-child(4) { left: 957u; }
 .cab-cta {
-  position: absolute; right: 1u; top: 0; width: 274u; height: 75u; border-radius: 38u;
-  background: rgba(115, 115, 115, 0.24); border: 1.5u solid rgba(255, 255, 255, 0.85);
+  position: absolute; right: -1px; top: -1px; width: 274u; height: 75u; border-radius: 38u;
+  background: rgba(255, 255, 255, 0.1); border: 1.5u solid rgba(255, 255, 255, 0.8);
   display: flex; align-items: center; justify-content: center;
-  font-size: 13.3u; letter-spacing: 0.1em; white-space: nowrap;
+  font-size: 13.3u; letter-spacing: 0.1em; white-space: nowrap; transition: background 0.3s, color 0.3s;
 }
+.cab-cta:hover { background: rgba(255, 255, 255, 0.92); color: var(--tinta); }
 .cab-menu { display: none; }
-.portafolio .cab { top: 34u; left: 34u; right: 34u; }
-.ceu .cab { top: 34u; left: 42u; right: 42u; }
-.portafolio .cab-nav a, .ceu .cab-nav a { margin-left: -64u; }
+
+/* ---------- Animaciones al bajar ---------- */
+.js .anim { opacity: 0; translate: 0 46px; transition: opacity 0.9s ease var(--d, 0s), translate 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0s); }
+.js .anim.visto { opacity: 1; translate: 0 0; }
+@keyframes entrar { from { opacity: 0; translate: 0 26px; } to { opacity: 1; translate: 0 0; } }
+@keyframes acercar { from { scale: 1.12; } to { scale: 1; } }
+.hero > img, .aca-hero > img, .ceu-hero img { animation: acercar 2.4s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.hero h1, .ceu-hero h1, .aca-titulo, .ruleta h1 { animation: entrar 1.1s ease 0.35s both; }
+.hero, .aca-hero { overflow: hidden; }
+.muestras figure { overflow: hidden; }
+.muestras img { transition: scale 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.muestras figure:hover img { scale: 1.05; }
+.js .servicios article { transition: opacity 0.9s ease var(--d, 0s), translate 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0s), box-shadow 0.35s, transform 0.35s; }
+.servicios article:hover { transform: translateY(-8u); box-shadow: 0 14u 34u rgba(0, 0, 0, 0.16); }
+@media (prefers-reduced-motion: reduce) {
+  .js .anim { opacity: 1; translate: none; transition: none; }
+  .hero > img, .aca-hero > img, .ceu-hero img, .hero h1, .ceu-hero h1, .aca-titulo, .ruleta h1 { animation: none; }
+  .ruleta-rueda { transition: none !important; }
+}
 
 /* ---------- Inicio ---------- */
 .hero { position: relative; height: 650u; background: var(--tinta); }
@@ -119,7 +146,9 @@ main { position: relative; max-width: 1920px; margin: 0 auto; overflow: hidden; 
   background: #fff; border: 2u solid #f4f4f4; border-radius: 36u; box-shadow: 0 3u 10u rgba(0, 0, 0, 0.08);
   font: inherit; font-size: 14.8u; letter-spacing: 0.05em; color: var(--tinta);
 }
-.formulario .boton { align-self: flex-end; margin: 25u 13u 0 0; }
+.formulario-pie { display: flex; align-items: center; justify-content: flex-end; gap: 16u; margin: 25u 13u 0 0; }
+.formulario-pie p { font-size: 12u; line-height: 1.35; color: var(--gris); }
+.formulario-pie .boton { flex: none; }
 
 /* ---------- Pie ---------- */
 .pie { position: relative; height: 213u; color: #fff; }
@@ -143,21 +172,32 @@ main { position: relative; max-width: 1920px; margin: 0 auto; overflow: hidden; 
 .pie-marca { left: 1121u; top: 28u; width: 98u; display: flex; flex-direction: column; align-items: center; gap: 12u; font-size: 13.9u; white-space: nowrap; }
 .pie-logo { width: 98u !important; height: auto !important; }
 
-/* ---------- Portafolio ---------- */
-.abanico { --u: var(--s); position: relative; height: 2150u; overflow: hidden; }
-.abanico h1 { position: absolute; left: 578u; top: 144u; font-size: 43.5u; font-weight: 400; letter-spacing: 0.06em; line-height: 1.2; color: #fff; white-space: nowrap; }
-.abanico-circulo { position: absolute; left: -361u; top: 764u; width: 546u; height: 546u; border: 3u dotted rgba(0, 0, 0, 0.1); border-radius: 50%; }
-.ab { position: absolute; object-fit: cover; border-radius: 46u; box-shadow: 0 10u 30u rgba(0, 0, 0, 0.22); max-width: none; transition: filter 0.3s; }
-.ab-a { left: -192u; top: 147u; width: 473u; height: 383u; transform: rotate(-59deg); }
-.ab-b { left: 7u; top: 355u; width: 554u; height: 314u; transform: rotate(-37deg); }
-.ab-c { left: 186u; top: 622u; width: 538u; height: 315u; transform: rotate(-17deg); }
-.ab-d { left: 233u; top: 921u; width: 682u; height: 389u; z-index: 3; }
-.ab-e { left: 116u; top: 1292u; width: 528u; height: 309u; transform: rotate(38deg); }
-.ab-f { left: -129u; top: 1528u; width: 561u; height: 314u; transform: rotate(59deg); }
-.abanico-centro::before { content: ''; position: absolute; left: 233u; top: 921u; width: 1093u; height: 389u; border-radius: 46u; background: rgba(255, 255, 255, 0.08); z-index: 2; transition: background 0.3s; }
-.abanico-centro:hover::before { background: rgba(255, 255, 255, 0.3); }
-.abanico-centro:hover .ab-d { filter: brightness(1.08); }
-.abanico-nombre { position: absolute; z-index: 4; left: 979u; top: 1046u; font-size: 34.6u; letter-spacing: 0.06em; line-height: 1.2; color: rgba(115, 115, 115, 0.74); white-space: nowrap; }
+/* ---------- Portafolio: ruleta ---------- */
+.ruleta { --u: var(--s); --radio: 820u; position: relative; height: 1120u; overflow: hidden; }
+.ruleta h1 { position: absolute; left: 800u; top: 150u; font-size: 43.5u; font-weight: 400; letter-spacing: 0.06em; line-height: 1.2; color: #fff; white-space: nowrap; z-index: 3; }
+.ruleta-aro { position: absolute; left: -780u; top: 80u; width: 960u; height: 960u; border: 2u dotted rgba(0, 0, 0, 0.14); border-radius: 50%; }
+.ruleta-rueda { position: absolute; left: -300u; top: 560u; width: 0; height: 0; transition: transform 1.5s cubic-bezier(0.7, 0, 0.15, 1); }
+.ruleta-casilla {
+  position: absolute; left: -280u; top: -165u; width: 560u; height: 330u; padding: 0; border: 0; background: none; cursor: pointer;
+  border-radius: 46u; overflow: hidden; box-shadow: 0 10u 30u rgba(0, 0, 0, 0.22);
+  filter: saturate(0.75) brightness(0.92); transition: filter 0.8s, box-shadow 0.8s;
+}
+.ruleta-casilla img { width: 100%; height: 100%; object-fit: cover; max-width: none; transition: scale 1.2s cubic-bezier(0.2, 0.7, 0.2, 1); scale: 1; }
+.ruleta-activa { filter: none; box-shadow: 0 18u 50u rgba(0, 0, 0, 0.32); }
+.ruleta-activa img { scale: 1.06; }
+.ruleta-info { position: absolute; left: 860u; top: 486u; z-index: 3; animation: entrar 0.9s ease 0.5s both; }
+.ruleta-nombre { font-size: 34.6u; letter-spacing: 0.06em; line-height: 1.2; color: rgba(115, 115, 115, 0.86); white-space: nowrap; }
+.ruleta-nombre span { display: block; }
+.ruleta-ver { display: inline-block; margin-top: 18u; font-size: 13.3u; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gris); border-bottom: 1px solid currentColor; padding-bottom: 3u; }
+.ruleta-ver:hover { color: #000; }
+.ruleta-flechas { position: absolute; left: 860u; top: 700u; z-index: 3; display: flex; gap: 10u; }
+.ruleta-flechas button {
+  width: 44u; height: 44u; padding: 10u; border-radius: 50%; cursor: pointer; color: var(--gris);
+  background: rgba(255, 255, 255, 0.45); border: 1px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: background 0.2s, color 0.2s;
+}
+.ruleta-flechas button:hover { background: #fff; color: #000; }
+.ruleta-flechas svg { width: 100%; height: 100%; display: block; }
 
 /* ---------- Proyecto CEU ---------- */
 .ceu-hero { position: relative; height: 845u; }
@@ -189,15 +229,16 @@ main { position: relative; max-width: 1920px; margin: 0 auto; overflow: hidden; 
 /* ---------- Móvil ---------- */
 @media (max-width: 860px) {
   :root { --u: 1px; --s: calc(100vw / 1000); }
-  .cab, .portafolio .cab, .ceu .cab { top: 10px; left: 10px; right: 10px; height: 56px; border-radius: 28px; }
+  .cab, .cab-bajo { top: 10px; left: 10px; right: 10px; height: 56px; border-radius: 28px; }
   .cab-marca { left: 18px; gap: 10px; font-size: 15px; }
   .cab-logo { width: 32px; }
   .cab-menu { display: flex; flex-direction: column; justify-content: center; gap: 5px; position: absolute; right: 8px; top: 8px; width: 40px; height: 40px; padding: 0 10px; background: none; border: 0; cursor: pointer; }
   .cab-menu span { display: block; height: 2px; background: #fff; border-radius: 2px; }
   .cab-nav, .cab-cta { display: none; }
-  .cab-abierta { height: auto; padding: 56px 0 16px; background: rgba(90, 90, 90, 0.94); }
+  .cab-abierta, .cab-abierta.cab-bajo { height: auto; padding: 56px 0 16px; background: rgba(95, 95, 95, 0.82); }
   .cab-abierta .cab-marca { height: 56px; }
   .cab-abierta .cab-nav { display: flex; flex-direction: column; }
+  .cab-abierta .cab-nav a::after { display: none; }
   .cab-abierta .cab-nav a { position: static; padding: 13px 24px; font-size: 13px; }
   .cab-abierta .cab-cta { display: flex; position: static; width: auto; height: 44px; margin: 8px 16px 0; font-size: 13px; }
 
@@ -237,7 +278,8 @@ main { position: relative; max-width: 1920px; margin: 0 auto; overflow: hidden; 
   .opciones label, .opciones label:nth-of-type(n) { width: auto; font-size: 11px; }
   .opciones i { width: 34px; height: 34px; }
   .formulario textarea { height: 170px; padding: 18px 22px; font-size: 16px; border-radius: 28px; }
-  .formulario .boton { margin: 20px 0 0; }
+  .formulario-pie { margin: 20px 0 0; }
+  .formulario-pie p { font-size: 13px; }
 
   .pie { height: auto; padding: 14px 10px; }
   .pie-caja { position: static; width: auto; height: auto; border-radius: 34px; padding: 28px 24px; display: flex; flex-direction: column; gap: 26px; }
@@ -252,10 +294,16 @@ main { position: relative; max-width: 1920px; margin: 0 auto; overflow: hidden; 
   .pie-marca { width: auto; flex-direction: row; gap: 12px; font-size: 14px; }
   .pie-logo { width: 44px !important; }
 
-  .abanico { height: 2010u; margin-top: 30px; }
-  .abanico h1 { left: 440u; top: 150u; font-size: 40u; }
-  .abanico-nombre { left: 262u; top: 1170u; font-size: 38u; color: #fff; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7); }
-  .abanico-centro::before { display: none; }
+  .ruleta { --radio: 760u; height: 1500u; margin-top: 20px; }
+  .ruleta h1 { left: 440u; top: 170u; font-size: 44u; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.25); }
+  .ruleta-rueda { left: -250u; top: 780u; }
+  .ruleta-aro { left: -730u; top: 300u; }
+  .ruleta-casilla { left: -310u; top: -185u; width: 620u; height: 370u; }
+  .ruleta-info { left: 60u; top: 1170u; }
+  .ruleta-nombre { font-size: 44u; color: #fff; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6); }
+  .ruleta-ver { font-size: 30u; color: #fff; margin-top: 26u; }
+  .ruleta-flechas { left: auto; right: 50u; top: 1280u; gap: 20u; }
+  .ruleta-flechas button { width: 110u; height: 110u; padding: 26u; }
 
   .ceu-hero { height: auto; padding: 10px 10px 0; }
   .ceu-hero img { position: static; width: 100%; height: 110vw; border-radius: 28px; }

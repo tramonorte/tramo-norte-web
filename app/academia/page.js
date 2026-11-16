@@ -13,10 +13,10 @@ export default function Academia() {
         <span className="aca-pildora aca-titulo">CURSO REVIT</span>
       </section>
       <section className="aca-cursos">
-        <h1 className="aca-pildora">CURSOS REVIT TRAMO NORTE</h1>
+        <h1 className="aca-pildora anim">CURSOS REVIT TRAMO NORTE</h1>
         <div className="aca-fila">
           {[1, 2, 3].map((n) => (
-            <article key={n}>
+            <article key={n} className="anim" style={{ '--d': `${(n - 1) * 0.15}s` }}>
               <div className="aca-tarjeta" />
               <p>Estamos preparando nuestros cursos de Revit. Muy pronto publicaremos aquí el contenido, las fechas y la forma de inscribirse.</p>
             </article>
